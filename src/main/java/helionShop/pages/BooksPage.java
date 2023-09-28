@@ -39,7 +39,10 @@ public class BooksPage {
     @FindBy (xpath = "//p[@class='header link-authors-no-border notOnMobile']")
     private WebElement ourAuthors;
 
-    public void setFilters(String minPrice, String maxPrice) throws InterruptedException {
+    @FindBy (xpath = "//div[@id='page-title']//h1")
+    private WebElement authorResult;
+
+    public String setFilters(String minPrice, String maxPrice) throws InterruptedException {
         Actions action = new Actions(driver);
         action.moveToElement(audioBookfilter).perform();
         audioBookfilter.click();
@@ -51,6 +54,7 @@ public class BooksPage {
         Thread.sleep(2000);
         firstAuthorSuggestion.click();
         filterButton.click();
+        return authorResult.getText();
     }
 
 }

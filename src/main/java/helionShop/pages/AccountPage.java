@@ -1,6 +1,7 @@
 package helionShop.pages;
 
 import helionShop.tests.BaseTest;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -81,6 +82,35 @@ public class AccountPage extends BaseTest {
     @FindBy (xpath = "//div[@class='usermenu-box  active']//a[text()='Dane zamawiającego']")
     private WebElement shippingUserInformationButton;
 
+    @FindBy (xpath = "//form[@id='changeMailForm']//button")
+    private WebElement saveEmailButton;
+
+    @FindBy (id = "inputEmail")
+    private WebElement userAccountEmailInput;
+
+    @FindBy (xpath = "//div[@class='text']//p")
+    private WebElement wrongEmailText;
+
+    @FindBy (xpath = "//form[@class='form account-order-data']//button")
+    private WebElement saveDaneZamawiajacegoButton;
+
+    @FindBy (xpath = "//div[@class='error-info-change']")
+    private WebElement errorChangePasswordText;
+
+    @FindBy (xpath = "//form[@id='edhaslo']//p//button")
+    private WebElement saveNewPasswordButton;
+
+    @FindBy (id = "change_password_new_password_first")
+    private WebElement newPasswordInput;
+
+    @FindBy (id = "change_password_new_password_second")
+    private WebElement confirmNewPasswordInput;
+
+    @FindBy (id = "inputEmail")
+    private WebElement newEmailInput;
+
+    @FindBy (id = "inputEmail-error")
+    private WebElement errorEmailText;
 
     public AccountPage moveToMyAccountButton() {
         Actions action = new Actions(driver);
@@ -118,4 +148,50 @@ public class AccountPage extends BaseTest {
         cityInput.sendKeys(randomWord);
         saveShippingInformationButton.click();
     }
+
+    public void clearFormDaneZamawiajacego() {
+        editAccountButton.click();
+        shippingUserInformationButton.click();
+        editNameInput.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        editNameInput.sendKeys(Keys.DELETE);
+        editLastNameInput.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        editLastNameInput.sendKeys(Keys.DELETE);
+        saveDaneZamawiajacegoButton.click();
+    }
+
+    public AccountPage clickSaveEmailButton() {
+        editAccountButton.click();
+        shippingUserInformationButton.click();
+        Actions action = new Actions(driver);
+        action.moveToElement(saveEmailButton).perform();
+        saveEmailButton.click();
+        return new AccountPage(driver);
+    }
+
+    public String getWrongEmailText() {
+        return wrongEmailText.getText();
+    }
+
+    public String getErrorChangePassword() {
+        Actions action = new Actions(driver);
+        action.moveToElement(saveEmailButton).perform();
+        saveNewPasswordButton.click();
+        return errorChangePasswordText.getText();
+    }
+
+    public String differentPassword() {
+        newPasswordInput.sendKeys("a");
+        confirmNewPasswordInput.sendKeys("aa");
+        saveNewPasswordButton.click();
+        return errorChangePasswordText.getText();
+    }
+
+    public String newEmail() {
+        newEmailInput.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        newEmailInput.sendKeys(Keys.DELETE);
+        newEmailInput.sendKeys("a");
+        saveEmailButton.click();
+        return errorEmailText.getText();
+    }
+
 }
