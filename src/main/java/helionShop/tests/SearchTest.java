@@ -4,10 +4,10 @@ import helionShop.pages.HomePage;
 import helionShop.pages.SearchResultPage;
 import org.testng.annotations.Test;
 
-public class searchTest extends baseTest{
+public class SearchTest extends BaseTest {
 
     @Test
-    public void finAndAddToCart() {
+    public void findAndAddToCart() {
         new HomePage(driver).clickLogin().loginToAccount(getEmail(),getPassword());
         new HomePage(driver).searchPhrase("selenium").chooseBook().click();
         new SearchResultPage(driver).addToCart().checkButtons().clearForm()

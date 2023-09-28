@@ -1,12 +1,12 @@
 package helionShop.pages;
 
-import helionShop.tests.baseTest;
+import helionShop.tests.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends baseTest {
+public class LoginPage extends BaseTest {
 
     private WebDriver driver;
 

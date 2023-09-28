@@ -5,7 +5,7 @@ import helionShop.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class loginTest extends baseTest {
+public class LoginTest extends BaseTest {
     @Test
     public void loginWithCorrectData() {
         new HomePage(driver).clickLogin().loginToAccount(getEmail(), getPassword());

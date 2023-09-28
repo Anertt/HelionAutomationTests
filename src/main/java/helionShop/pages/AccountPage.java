@@ -1,6 +1,6 @@
 package helionShop.pages;
 
-import helionShop.tests.baseTest;
+import helionShop.tests.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class AccountPage extends baseTest {
+public class AccountPage extends BaseTest {
 
     private WebDriver driver;
 

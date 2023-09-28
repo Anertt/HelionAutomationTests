@@ -5,7 +5,7 @@ import helionShop.pages.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class myAccountTest extends baseTest{
+public class MyAccountTest extends BaseTest {
 
     @Test
     public void addingNewShelf() {
@@ -15,7 +15,7 @@ public class myAccountTest extends baseTest{
     }
 
     @Test
-    public void ds() {
+    public void editUserInfo() {
         new HomePage(driver).clickLogin().loginToAccount(getEmail(),getPassword());
         new AccountPage(driver).editUserInformations();
     }
