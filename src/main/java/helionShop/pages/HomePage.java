@@ -26,6 +26,7 @@ public class HomePage {
     @FindBy(xpath = "//nav[@class='main-menu']//a[text()='Książki']")
     private WebElement navBooksButton;
 
+
     public LoginPage clickLogin() {
         loginButton.click();
         return new LoginPage(driver);
@@ -40,6 +41,9 @@ public class HomePage {
         navBooksButton.click();
         return new BooksPage(driver);
     }
+
+
+
 
 
 

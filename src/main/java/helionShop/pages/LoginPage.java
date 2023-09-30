@@ -27,6 +27,10 @@ public class LoginPage extends BaseTest {
     @FindBy (xpath = "//h4[text()='Niestety podałeś niewłaściwy adres email lub hasło.']")
     WebElement errorText;
 
+    @FindBy(xpath = "//p[@class='button margin-bottom-30']//a")
+    private WebElement registerAccountButton;
+
+
     public LoginPage loginToAccount(String email, String password) {
         loginInput.sendKeys(email);
         passwordInput.sendKeys(password);
@@ -36,5 +40,10 @@ public class LoginPage extends BaseTest {
 
     public String getErrorText() {
       return errorText.getText();
+    }
+
+    public RegisterAccountPage clickRegisterButton(){
+        registerAccountButton.click();
+        return new RegisterAccountPage(driver);
     }
 }
