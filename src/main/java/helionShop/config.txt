@@ -1,0 +1,2 @@
+login=pinglusik@gmail.com
+password=a!eWgzXQPKr6qC7

@@ -31,6 +31,8 @@ public class LoginPage extends BaseTest {
     private WebElement registerAccountButton;
 
 
+
+
     public LoginPage loginToAccount(String email, String password) {
         loginInput.sendKeys(email);
         passwordInput.sendKeys(password);
